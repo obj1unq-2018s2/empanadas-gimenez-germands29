@@ -20,4 +20,25 @@ describe "test de empleados de Empanadas Gimenez"{
 		assert.equals(0, baigorria.totalDeuda())
 		assert.equals(3000, baigorria.totalDinero())
 	}
+	
+	
+	
+	test "Baigorria gasta 25000, paga con los 3000 que tiene en su total, la deuda queda en 22000 y total dinero en 0"{
+		baigorria.gastar(4000)
+		baigorria.gastar(8000)
+		baigorria.cobrarSueldo()
+		baigorria.gastar(25000)
+		assert.equals(22000, baigorria.totalDeuda())
+		assert.equals(0, baigorria.totalDinero())
+	}
+	
+	test "Baigorria cobra 15000 de nuevo, paga sus deudas pero no le alcanza, totalDeuda() es 7000, totalDinero() es 0 "{
+		baigorria.gastar(4000)
+		baigorria.gastar(8000)
+		baigorria.cobrarSueldo()
+		baigorria.gastar(25000)
+		baigorria.cobrarSueldo()
+		assert.equals(7000, baigorria.totalDeuda())
+		assert.equals(0, baigorria.totalDinero())
+	}
 }
