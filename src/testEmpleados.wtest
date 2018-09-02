@@ -1,0 +1,23 @@
+import empleados.*
+describe "test de empleados de Empanadas Gimenez"{
+	test "Baigorria gasta 4000 empezando con 15000 de sueldo , 0 deuda y dinero 0"{
+		baigorria.gastar(4000)
+		assert.equals(4000, baigorria.totalDeuda())
+	}
+
+
+	test "baigorria gasta otros 8000, deuda pasa a 12000, total dinero sigue 0"{
+		baigorria.gastar(4000)
+		baigorria.gastar(8000)
+		assert.equals(12000,baigorria.totalDeuda())
+	}
+	
+	
+	test "baigorria cobra 15000 y paga sus deudas, deuda queda en 0 , total dinero en 3000"{
+		baigorria.gastar(4000)
+		baigorria.gastar(8000)
+		baigorria.cobrarSueldo()
+		assert.equals(0, baigorria.totalDeuda())
+		assert.equals(3000, baigorria.totalDinero())
+	}
+}

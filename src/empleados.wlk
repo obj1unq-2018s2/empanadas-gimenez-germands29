@@ -14,19 +14,32 @@ object gimenez {
 }
 
 object baigorria {
-	var cantidadEmpanadasVendidas = 100
+	var cantidadEmpanadasVendidas = 1000 // cambio la cantidad de empanadas vendidas para que arranque en 15000 como lo indica el ejercicio 
 	var montoPorEmpanada = 15
-	var totalDinero = 100 // arranca en 0, FALTA TERMINAR
+	var totalDinero = 0 
 	var deuda= 0
+	
 	method venderEmpanada() {
 		cantidadEmpanadasVendidas += 1
 	}
  	
 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
+	
 	method cobrarSueldo(){
-		return self.pagarDeudas()
+		totalDinero = totalDinero + self.sueldo()
+		self.pagarDeudas()
 	}
-	method pagarDeudas(){return self.totalDinero() - self.totalDeuda()}
+	
+	method pagarDeudas(){
+		if (totalDinero >= deuda ) {
+			totalDinero = totalDinero - deuda
+			deuda =	0
+		}else{
+			deuda = deuda - totalDinero
+			totalDinero = 0
+		}
+	}
+	
 	method gastar(cuanto){
 		if (self.totalDinero() > cuanto) {
 			totalDinero = totalDinero - cuanto
