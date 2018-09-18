@@ -40,6 +40,7 @@ object baigorria {
 		}
 	}
 	
+	// TODO Hay lógica repetida entre pagar y gastar, ¿cómo podría evitarse?
 	method gastar(cuanto){
 		if (self.totalDinero() > cuanto) {
 			totalDinero = totalDinero - cuanto

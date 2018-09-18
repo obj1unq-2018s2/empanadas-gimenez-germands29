@@ -1,6 +1,8 @@
 import empleados.*
+// TODO Import roto, chequeá que no te pase. 
 import testEmpleados.*
 	
+	// TODO Test que no anda, asegurate de que no te pase!
 	test "baigorria gasta otros 8000, deuda pasa a 12000, total dinero sigue 0"{
 		baigorria.gastar(8000)
 		assert.equals(12000,baigorria.totalDeuda())
